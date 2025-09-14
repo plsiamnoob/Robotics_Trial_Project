@@ -12,10 +12,11 @@ float data[4];
 Servo ser;
 const byte SERVO_PIN = 5;
 const int MPU_ADDRESS = 0x68; //This is the default I2C address used for MPU6050 boards
+const int BAUD_RATE = 9600;   //To set the baud rate at which serial monitor should take data
 int offset;
 
 void setup(){
-  Serial.begin(115200); 
+  Serial.begin(BAUD_RATE); 
   Wire.begin();
   Wire.beginTransmission(MPU_ADDRESS);
   Wire.write(0x6B);         //Register used to power on the MPU6050 board
